@@ -1,7 +1,15 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: x16n064
- * Date: 2017/09/21
- * Time: 10:19
- */
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<?php if (isset($error)): ?>
+    <?php echo $error ?>
+<?php endif ?>
+
+<?php echo $form ?>
+
+</body>
+</html>

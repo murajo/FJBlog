@@ -18,7 +18,7 @@
             <?= $result->user->name ?>
             <?= $result->user->screen_name ?>
             <img src="<?= $result->user->profile_image_url ?>">
-            <?= (strtotime($result->created_at)+32400)/86400+25569 ?></td>
+            <?= date("Y/m/d H:i:s",strtotime($result->created_at)) ?></td>
     </table>
 <?php endforeach; ?>
 <?= Asset::js('jquery.min.js'); ?>

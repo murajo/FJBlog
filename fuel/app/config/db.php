@@ -6,18 +6,23 @@
  */
 
 return array(
-    'default' => array(
-        'type'        => 'mysqli',
-        'connection'  => array(
-            'persistent' => false,
+    'development' => array(
+        'type'           => 'mysqli',
+        'connection'     => array(
+            'hostname'       => 'localhost',
+            'port'           => '3306',
+            'database'       => 'fjblog',
+            'username'       => 'root',
+            'password'       => '',
+            'persistent'     => false,
+            'compress'       => false,
         ),
         'identifier'   => '`',
-        'table_prefix' => '',
-        'charset'      => 'utf8',
-        'collation'    => false,
-        'enable_cache' => true,
-        'profiling'    => false,
-        'readonly'     => false,
+        'table_prefix'   => '',
+        'charset'        => 'utf8',
+        'enable_cache'   => true,
+        'profiling'      => false,
     ),
+
 
 );

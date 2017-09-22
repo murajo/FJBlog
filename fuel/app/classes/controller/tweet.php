@@ -8,16 +8,16 @@
  */
 class Controller_Tweet extends Controller
 {
-    public function before()
-    {
-        parent::before();
-
-        if (Auth::check()) {
-        } else {
-            // 未ログイン時はログインページへリダイレクト
-            Response::redirect('login/index');
-        }
-    }
+//    public function before()
+//    {
+//        parent::before();
+//
+//        if (Auth::check()) {
+//        } else {
+//            // 未ログイン時はログインページへリダイレクト
+//            Response::redirect('login/index');
+//        }
+//    }
 
     public function action_index()
     {

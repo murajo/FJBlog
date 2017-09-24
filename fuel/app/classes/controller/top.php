@@ -12,7 +12,6 @@ class Controller_Top extends Controller
     public function action_index()
     {
         $view = View::forge('top/index.php');
-
         return $view;
     }
 
@@ -21,6 +20,7 @@ class Controller_Top extends Controller
         $username = $this->post_cheack('username');
         $password = $this->post_cheack('password');
         $email = $this->post_cheack('email');
+
         Auth::create_user(
             $username,
             $password,

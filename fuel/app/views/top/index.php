@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>test</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <h2>アカウント作成</h2>

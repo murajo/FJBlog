@@ -1,5 +1,5 @@
 <?php
-class Controller_Login extends Controller
+class Controller_Login extends Controller_Rest
 {
     public function action_index()
     {

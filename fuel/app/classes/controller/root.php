@@ -24,18 +24,17 @@ class Controller_Root extends Controller
     private function root_page()
     {
         $view = View::forge('root/root.php');
-        $view->set('msg', '');
         if (Input::post('action') == 'create') {
-            $this->root_create_user();
+            $view = $this->root_create_user($view);
         } else if (Input::post('action') == 'delete') {
-            $this->root_delete_user();
+            $view = $this->root_delete_user($view);
         } else if (Input::post('action') == 'update') {
-            $this->root_change_password();
+            $view = $this->root_change_password($view);
         }
         return $view;
     }
 
-    private function root_create_user()
+    private function root_create_user($view)
     {
         $val = Validation::forge();
         $val = $this->validation_username($val,'create_username');
@@ -47,9 +46,12 @@ class Controller_Root extends Controller
             $email = Input::post('create_email');
             Auth::create_user($username, $password, $email);
         }
+        $result_validate = $val->show_errors();
+        $view->set_global('create_err', $result_validate);
+        return $view;
     }
 
-    private function root_delete_user()
+    private function root_delete_user($view)
     {
         $val = Validation::forge();
         $val->add('delete_username','ユーザ名')
@@ -58,9 +60,12 @@ class Controller_Root extends Controller
             $username = Input::post('delete_username');
             Auth::delete_user($username);
         }
+        $result_validate = $val->show_errors();
+        $view->set_global('delete_err', $result_validate);
+        return $view;
     }
 
-    private function root_change_password()
+    private function root_change_password($view)
     {
         $val = Validation::forge();
         $val = $this->validation_password($val,'change_password');
@@ -68,8 +73,11 @@ class Controller_Root extends Controller
         if($val->run()){
             $username = Input::post('change_user');
             $new_password = Input::post('change_password');
-
+            Auth::update_user(array('password' => $new_password),$username);
         }
+        $result_validate = $val->show_errors();
+        $view->set_global('update_err', $result_validate);
+        return $view;
     }
 
     private function validation_username($val,$set_name){

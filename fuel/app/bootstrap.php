@@ -24,4 +24,4 @@ require COREPATH.'bootstrap.php';
 \Fuel::init('config.php');
 
 $_SERVER['ACOUNT_ROOT_ACCESS_TOKEN'] = "test";
-//$_SERVER['ACOUNT_ROOT_ACCESS_TOKEN'] = "b501386bde3f260ec7732230e06359e2";
+//$_SERVER['ACOUNT_ROOT_ACCESS_TOKEN'] ="; "b501386bde3f260ec7732230e06359e2

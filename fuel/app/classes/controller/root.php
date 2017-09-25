@@ -31,20 +31,27 @@ class Controller_Root extends Controller
         } else if (Input::post('action') == 'update') {
             $view = $this->root_change_password($view);
         }
+        $user_list = Model_users::find('all');
+        $view->set('user_list', $user_list);
+        if (Input::post('action') == 'logout') {
+            Session::delete('access_password');
+            $view = View::forge('root/index.php');
+        }
         return $view;
     }
 
     private function root_create_user($view)
     {
         $val = Validation::forge();
-        $val = $this->validation_username($val,'create_username');
-        $val = $this->validation_password($val,'create_password');
-        $val = $this->validation_email($val,'create_email');
+        $val = $this->validation_username($val, 'create_username');
+        $val = $this->validation_password($val, 'create_password');
+        $val = $this->validation_email($val, 'create_email');
         if ($val->run()) {
             $username = Input::post('create_username');
             $password = Input::post('create_password');
             $email = Input::post('create_email');
             Auth::create_user($username, $password, $email);
+            echo('登録成功');
         }
         $result_validate = $val->show_errors();
         $view->set_global('create_err', $result_validate);
@@ -54,11 +61,12 @@ class Controller_Root extends Controller
     private function root_delete_user($view)
     {
         $val = Validation::forge();
-        $val->add('delete_username','ユーザ名')
+        $val->add('delete_username', 'ユーザ名')
             ->add_rule('required');
-        if($val->run()){
+        if ($val->run()) {
             $username = Input::post('delete_username');
             Auth::delete_user($username);
+            echo '削除完了';
         }
         $result_validate = $val->show_errors();
         $view->set_global('delete_err', $result_validate);
@@ -68,19 +76,32 @@ class Controller_Root extends Controller
     private function root_change_password($view)
     {
         $val = Validation::forge();
-        $val = $this->validation_password($val,'change_password');
-        $val = $this->validation_username($val,'change_user');
-        if($val->run()){
+        $val = $this->validation_password($val, 'change_password');
+        $val = $this->validation_username($val, 'change_user');
+        if ($val->run()) {
             $username = Input::post('change_user');
             $new_password = Input::post('change_password');
-            Auth::update_user(array('password' => $new_password),$username);
+            $hash_password = \Auth::hash_password($new_password);
+            $query = Model_users::query()->where('username', $username)->get();
+            $id = '';
+            foreach ($query as $result):
+                $id = $result->id;
+            endforeach;
+            $user = Model_users::find($id);
+            $user->set(array(
+                'title' => 'password',
+                'author' => $hash_password
+            ));
+            $user->save();
+            echo '変更成功';
         }
         $result_validate = $val->show_errors();
         $view->set_global('update_err', $result_validate);
         return $view;
     }
 
-    private function validation_username($val,$set_name){
+    private function validation_username($val, $set_name)
+    {
         $val->add($set_name, 'ユーザ名')
             ->add_rule('required')
             ->add_rule('max_length', '12')
@@ -88,19 +109,21 @@ class Controller_Root extends Controller
         return $val;
     }
 
-    private function validation_password($val,$set_pass){
-        $val->add($set_pass,'パスワード')
+    private function validation_password($val, $set_pass)
+    {
+        $val->add($set_pass, 'パスワード')
             ->add_rule('required')
-            ->add_rule('max_length','20')
-            ->add_rule('min_length','7');
-        return$val;
+            ->add_rule('max_length', '20')
+            ->add_rule('min_length', '7');
+        return $val;
     }
 
-    private function validation_email($val,$set_mail){
-        $val->add($set_mail,'メールアドレス')
+    private function validation_email($val, $set_mail)
+    {
+        $val->add($set_mail, 'メールアドレス')
             ->add_rule('required')
             ->add_rule('valid_email');
-        return$val;
+        return $val;
     }
 
 

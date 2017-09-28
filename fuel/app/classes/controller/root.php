@@ -8,7 +8,6 @@
  */
 class Controller_Root extends Controller
 {
-
     public function action_index()
     {
         $view = View::forge('root/index.php');
@@ -125,6 +124,4 @@ class Controller_Root extends Controller
             ->add_rule('valid_email');
         return $val;
     }
-
-
 }

@@ -1,5 +1,5 @@
 <?php
-class Controller_Login extends Controller_Rest
+class Controller_Login extends Controller
 {
     public function action_index()
     {
@@ -28,7 +28,7 @@ class Controller_Login extends Controller_Rest
             if ($form->validation()->run()) {
                 if ($auth->login(Input::post('username'), Input::post('password'))) {
                     // ログイン成功時
-                    Response::redirect('welcome/index');
+                    Response::redirect('top/index');
                 }
                 $error = 'ログインに失敗しました';
             } else {
@@ -36,7 +36,7 @@ class Controller_Login extends Controller_Rest
             }
         }
 
-        $view->set_safe('form', $form->build(Uri::create('login/index')));
+        $view->set_safe('form', $form->build(Uri::create('top/index')));
         $view->set('error', $error);
 
         return $view;

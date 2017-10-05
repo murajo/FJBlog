@@ -15,6 +15,12 @@ class Controller_Top extends Controller
             $auth->logout();
             Response::redirect('login');
         }
+        $user_id = Auth::get_user_id();
+foreach ($dbObj as $result):
+    <?= $result->id?><br>
+    ユーザ名 <?= $result->username ?><br>
+    テキスト<?= $result->text ?><br>
+    投稿日時<?= $result->created_at ?><br><br>
         return $view;
     }
 

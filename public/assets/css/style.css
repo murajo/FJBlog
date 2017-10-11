@@ -1,0 +1,93 @@
+@charset "UTF-8";
+body {
+background-image: url(kabegami.jpg);
+background-position: center center;
+background-repeat: repeat;
+background-attachment: fixed;
+background-size: auto;
+/* 背景画像が読み込まれる前に表示される背景のカラー */
+background-color: #FFAA55;
+}
+table.aaa{/*端から端までのpx数*/
+  width:1200px;
+  margin-top: -60px;
+  margin-bottom: 20px;
+  }
+table.bbb{
+  width:1000px;
+  margin-bottom:10px;
+}
+
+h2 {
+  text-align: center;
+  font-style: italic; /*文字を斜体にする*/
+  text-decoration: underline; /*文字に下線を入れる*/
+  letter-spacing: 0.3em; /*文字間隔の変更*/
+  color: #114514;
+  margin-top: 30px;
+}
+
+div.ver{
+  font-size: 14px;
+}
+div.gazou{
+margin-top: -60px;
+}
+
+div.toukou{
+  margin-top: 30px;
+  text-align: center;
+}
+
+th.home{
+  width:400px;
+}
+th.twitter{
+  width: 400px;
+}
+th.keijiban{
+  width: 400px;
+}
+
+th.user{
+  width: 200px;
+}
+th.text{
+  text-align: left;
+  width: 600px;
+  word-break:break-all;
+}
+th.timestamp{
+  text-align: center;
+  width: 200px;
+}
+
+table.aaa tr:hover {
+  background-color: #8888FF;    /* マウスオーバー時の行の背景色 */
+}
+table.aaa th:hover {
+  background-color: #CCFFFF;    /* マウスオーバー時のセルの背景色 */
+}
+
+form {
+width: 100%;
+padding: 10px 10px 0 10px;
+margin-bottom: 15px;
+color: #666;
+}
+
+input {
+  width: 300px;
+}
+
+input.sousin{
+  width: 150px;
+    height: 50px;
+  cursor:pointer;
+}
+
+textarea{
+  width: 300px;
+  height: 7em;
+  line-height: 1em;
+}

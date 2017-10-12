@@ -17,7 +17,9 @@ class Controller_Bord extends Controller
         $dbobj2->username = $user;
         $dbobj2->text = $text;
         $dbobj2->created_at = $time;
-        
+
+        $user = htmlspecialchars($user, ENT_QUOTES);
+        $text = htmlspecialchars($text, ENT_QUOTES);
         
         // $dbobj2->set('username',$user);
         // $dbobj2->set('text',$text);

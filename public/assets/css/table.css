@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+table.info{
+    width: 300px;
+    margin-left: 100px;
+}
+
+table.timeline{/*端から端までのpx数*/
+    width:1200px;
+    margin-bottom: 20px;
+}
+
+td.twimg{
+    text-align: center;
+    width: auto;
+}
+
+td.twid{
+    text-align: left;
+    width:auto;
+}
+
+td.user{
+    text-align: center;
+    width: 300px;
+    color: blue
+}
+
+td.text{
+    text-align: left;
+    width: 600px;
+}
+
+td.time{
+    text-align: center;
+    width: 300px;
+    color: blue;
+}

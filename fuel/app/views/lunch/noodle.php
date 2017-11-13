@@ -1,11 +1,11 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="ja">
-<meta charset="UTF-8">
-<?=Asset::css('style.css')?>
+<?=Asset::css('food.css')?>
 <?=Asset::css('table.css')?>
 <head>
     <link rel="SHORTCUT ICON" HREF="assets/img/favicon.ico">
-    <title>FJBlog</title>
+    <meta charset="utf-8">
+    <title>FJB周辺のラーメン屋</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/css/drawer.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
@@ -55,34 +55,68 @@
 
 </header>
 <main role="main">
-    <!-- バージョン表記 -->
-    <div class="ver" align="right">
-        ばーじょんは1.1.5だよ！
-    </div>
+    <body>
+    <h2>FJB周辺のラーメン屋</h2><hr>
 
-    <div class="gazou" align="center">
-        <?=Asset::img('FJBlog.png')?>
-    </div>
 
-    <h2>～みんなの投稿～</h2>
+    <h3>いさりび</h3>
+    <div class="a"><?=Asset::img('isaribi.png')?></div>
+    <div class="noodle">
+        <p>あっさりとした本格ラーメン、お店一押しの自家製ラー油はやみつきに<br>
+            なりやめられない。<br>
+            途中で調味料を加えて、何回も味の変化を楽しめるので飽きが来ない。</p>
+    </div><hr>
 
-    <!-- ユーザーの投稿 -->
+    <h3>青葉</h3>
+    <div class="a"><?=Asset::img('aoba.png')?></div>
+    <div class="noodle">
+        <p>昼時はいつも混んでいる、中華風特製ラーメンの味玉は特に絶品の一品<br>
+            水にレモンが入ってるところもオシャレで雰囲気が良いです。</p>
+    </div><hr>
+
+    <h3>まるは</h3>
+    <div class="a"><?=Asset::img('aoba.png')?></div>
+    <div class="noodle">
+        <p>店内が広いので、4人~大人数で行く時はここがオススメ！<br>
+            鶏白湯のコラーゲンを含んだメニューもあるので女性にも人気。</p>
+    </div><hr>
+
+    <h3>ぎらぎら</h3>
+    <div class="a"><?=Asset::img('siro.png')?></div>
+    <div class="noodle">
+        <p>ランチ時は大盛もしくはライスが無料でついてくる。<br>
+            量が多く、濃厚スープが特徴的で食べ盛りの学生に人気！</p>
+    </div><hr>
+
+    <h3>麺屋二代目弦</h3>
+    <div class="a"><?=Asset::img('nidaime.png')?></div>
+    <div class="noodle">
+        <p>スープや小松菜にこだわっているラーメンが楽しめます。<br>
+            真空低温調理の鶏チャーシューが特徴的で美味しい！</p>
+    </div><hr>
+
+    <h3>無限大</h3>
+    <div class="a"><?=Asset::img('aoba.png')?></div>
+    <div class="noodle">
+        <p>太麺の無限大ラーメンと細麺の無双ラーメンを気分で選べる。<br>
+            たっぷりと入っている野菜が美味しく特徴的！</p>
+    </div><hr>
+
     <?php foreach ($dbObj as $result): ?>
         <table class="timeline" align="center">
             <tr>
-                <td class="user"><?= $result->username ?></td>
-                <td class="text"><?= $result->text ?></td>
-                <td class="time"><?= $result->created_at ?></td>
+                <td class="shop"><?= $result->shopname ?></td>
+                <td class="voice"><?= $result->voice ?></td>
             <tr>
         </table>
     <?php endforeach ?>
 
     <div class="toukou">
-        <form action="bord.php" method="post" onsubmit="return false"><!-- Enterが押されてもsubmitしない -->
-            <label><input type="text" name="user" placeholder="ユーザー名"></label>
-            <p><textarea name="text" placeholder="本文を入力してください"></textarea></p>
+        <form action="noodle.php" method="post" onsubmit="return false"><!-- Enterが押されてもsubmitしない -->
+            <label><input type="text" name="shop" placeholder="店名"></label>
+            <p><textarea name="voice" placeholder="本文を入力してください"></textarea></p>
             <input class="sousin" type="button" name="save" value="送信" onclick="submit()"><!-- ボタンが押されたときsubmitする -->
     </div>
 
-</body>
+    </body>
 </html>

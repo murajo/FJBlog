@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+
+span.sample2 {
+
+    font-weight: bold;
+}
+
+input#submit_button {
+
+    padding: 10px 20px;
+
+    font-size: 0.9em;
+
+    /* 背景色を黒に指定*/
+
+    background-color: #00BFFF;
+
+    /*文字色を白に指定*/
+
+    color: #fff;
+
+    /*submitボタンのを枠を非表示にする*/
+
+    border-style: none;
+
+    /* 角丸の指定 */
+    -moz-border-radius: 20px;
+
+    -webkit-border-radius: 20px;
+
+    border-radius: 20px;
+
+}
+

@@ -72,11 +72,12 @@ class Model_Tweet extends \Orm\Model
     public function fetch_tweet() {
         // ライブラリの読み込み
         require_once (APPPATH.'vendor/twistOAuth.phar');
+        var_dump(get_include_path());
 
-        $consumer_key        = 'j9d1ZAYvAtZRVAebSEgCCaEkE';
-        $consumer_secret     = 'Km0puycp56JpOSaSThvrrfGUuMqgYe03D6u2tdJcbS12ElbT7n';
-        $access_token        = '707600108234223616-UGEOhkuI9GoTTBMmzU3RwuqQY12d7nW';
-        $access_token_secret = 'MrcB5Xp8wuJKODwbNkwYkCVj4L3dKmHfQtszJFLGGkoq9';
+        $consumer_key        = $_SERVER['consumer_key'];
+        $consumer_secret     = $_SERVER['consumer_secret'];
+        $access_token        = $_SERVER['access_token'];
+        $access_token_secret = $_SERVER['access_token_secret'];
 
         $connection = new TwistOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
 

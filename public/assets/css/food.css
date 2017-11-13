@@ -1,0 +1,49 @@
+@charset "UTF-8";
+body {
+    background-image: url(kabegami.jpg);
+    background-position: center center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: auto;
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    background-color: #FFAA55;
+    font-size: 20px;
+    font-weight: bold;
+}
+h2{
+    text-align: center;
+    color: #114514;
+}
+h3{
+    text-align: center;
+    color: red;
+}
+.drawer-back{
+    background-color:orange;
+}
+.drawer-char{
+    font-size: 30px;
+    color: brown;
+}
+img{
+    height: 300px;
+    width: 300px;
+}
+div.noodle{
+    margin-left: 30%;
+    color: blue;
+}
+div.a{
+    max-width: 50%;
+    margin-left: 40%;
+}
+div.toukou{
+    margin-top: 30px;
+    text-align: center;
+}
+textarea{
+    width: 300px;
+    height: 7em;
+    line-height: 1em;
+}
+

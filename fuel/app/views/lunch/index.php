@@ -64,7 +64,17 @@
         <?=Asset::img('FJBlog.png')?>
     </div>
 
-    <h2>～みんなの投稿～</h2>
+    <div class="food">
+        <ol>
+            <li>コンビニ</li>
+            <li>お昼ランキング</li>
+            <li>放課後ランキング</li>
+            <li><a class="eat" href="lunch/noodle">ラーメン</a></li>
+            <li>女子会</li>
+        </ol>
+    </div>
+
+    <h2>～みんなの声～</h2>
 
     <!-- ユーザーの投稿 -->
     <?php foreach ($dbObj as $result): ?>
@@ -78,7 +88,7 @@
     <?php endforeach ?>
 
     <div class="toukou">
-        <form action="bord.php" method="post" onsubmit="return false"><!-- Enterが押されてもsubmitしない -->
+        <form action="lunch.php" method="post" onsubmit="return false"><!-- Enterが押されてもsubmitしない -->
             <label><input type="text" name="user" placeholder="ユーザー名"></label>
             <p><textarea name="text" placeholder="本文を入力してください"></textarea></p>
             <input class="sousin" type="button" name="save" value="送信" onclick="submit()"><!-- ボタンが押されたときsubmitする -->

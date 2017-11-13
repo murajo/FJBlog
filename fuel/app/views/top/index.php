@@ -15,7 +15,8 @@
     <div class="progress-bar progress-bar-success" style="width: 10%;"></div>
     <div class="progress-bar progress-bar-info" style="width: 10%;"></div>
 </div>
-<h2>どんかつ食べたいンゴ</h2>
+<h2>ユーザ名<?=$username?>でログインしました</h2>
+
 </body>
 </html>
 

@@ -21,14 +21,18 @@ class Controller_Tweet extends Controller
 
     public function action_index()
     {
+        $serach_word = 'FJBlog';
         $view = View::forge('tweet/index.php');
-        $this->get_tweet($view);
+        if(!empty(Input::post('search'))){
+            $serach_word = Input::post('search');
+        }
+        $this->get_tweet($view,$serach_word);
         return $view;
     }
 
-    private function get_tweet($view)
+    private function get_tweet($view,$keyword)
     {
-        $tweets = Model_Tweet::forge()->fetch_tweet();
+        $tweets = Model_Tweet::forge()->fetch_tweet($keyword);
         $view->set('tweets', $tweets);
 
     }

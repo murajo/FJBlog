@@ -2,6 +2,7 @@
 
 class Model_Tweet extends \Orm\Model
 {
+
     protected static $_properties = array(
         "id" => array(
             "label" => "Id",
@@ -69,19 +70,18 @@ class Model_Tweet extends \Orm\Model
     /**
      * @return array ツイートの配列を返す
      */
-    public function fetch_tweet() {
+    public function fetch_tweet($keword) {
         // ライブラリの読み込み
         require_once (APPPATH.'vendor/twistOAuth.phar');
 
-        $consumer_key        = $_SERVER['consumer_key'];
-        $consumer_secret     = $_SERVER['consumer_secret'];
-        $access_token        = $_SERVER['access_token'];
-        $access_token_secret = $_SERVER['access_token_secret'];
-
+        $consumer_key        = 'j9d1ZAYvAtZRVAebSEgCCaEkE';
+        $consumer_secret     = 'Km0puycp56JpOSaSThvrrfGUuMqgYe03D6u2tdJcbS12ElbT7n';
+        $access_token        = '707600108234223616-UGEOhkuI9GoTTBMmzU3RwuqQY12d7nW';
+        $access_token_secret = 'MrcB5Xp8wuJKODwbNkwYkCVj4L3dKmHfQtszJFLGGkoq9';
         $connection = new TwistOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
-
         // キーワードによるツイート検索
-        $tweets_params = ['q' => 'スプラトゥーン -@ exclude:retweets' ,'count' => '100'];
+        $TWEET_KEYWORD = $keword;
+        $tweets_params = ['q' => $TWEET_KEYWORD . ' -@ exclude:retweets' ,'count' => '100'];
         $tweets = $connection->get('search/tweets', $tweets_params)->statuses;
 
         return $tweets;
@@ -108,5 +108,4 @@ class Model_Tweet extends \Orm\Model
             echo "out\n";
         }
     }
-
 }

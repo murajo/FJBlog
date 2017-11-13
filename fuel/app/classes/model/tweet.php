@@ -72,7 +72,6 @@ class Model_Tweet extends \Orm\Model
     public function fetch_tweet() {
         // ライブラリの読み込み
         require_once (APPPATH.'vendor/twistOAuth.phar');
-        var_dump(get_include_path());
 
         $consumer_key        = $_SERVER['consumer_key'];
         $consumer_secret     = $_SERVER['consumer_secret'];

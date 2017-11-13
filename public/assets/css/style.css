@@ -60,16 +60,6 @@ div.food{
   margin:0 550px 100px;
   color:darkblue;
 }
-
-.drawer-back{
-  background-color:burlywood;
-}
-
-.drawer-char{
-  font-size: 30px;
-  color: firebrick;
-}
-
 textarea{
   width: 300px;
   height: 7em;

@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="ja">
-<?=Asset::css('food.css')?>
-<?=Asset::css('table.css')?>
+    <?=Asset::css('drop.css')?>
+    <?=Asset::css('food.css')?>
+    <?=Asset::css('table.css')?>
 <head>
     <link rel="SHORTCUT ICON" HREF="assets/img/favicon.ico">
     <meta charset="utf-8">

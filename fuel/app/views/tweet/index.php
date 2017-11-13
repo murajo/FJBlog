@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="ja">
 <meta charset="UTF-8">
+<?=Asset::css('drop.css')?>
 <?=Asset::css('style.css')?>
 <?=Asset::css('table.css')?>
 <head>

@@ -16,9 +16,9 @@
     <?php endif ?>
     <form action="createuser" method="post">
         <p>ユーザ名<br>
-        ※ユーザ名は半角英数字 4文字以上12文字以内</p><input type="text" name="username"><br>
+        ※ユーザ名は 4文字以上12文字以内</p><input type="text" name="username"><br>
         <p>パスワード<br>
-        ※パスワードは半角英数字 7文字以上20文字以内</p><input type="password" name="password"><br>
+        ※パスワードは 7文字以上20文字以内</p><input type="password" name="password"><br>
         <p>パスワード(確認用)</p><input type="password" name="password_retype"><br>
         <div class="input#submit_button" align="center">
             <input id="submit_button" type="submit" name="send" value="送信"><br><br>

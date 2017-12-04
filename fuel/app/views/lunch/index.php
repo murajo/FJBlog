@@ -4,6 +4,7 @@
 <?=Asset::css('drop.css')?>
 <?=Asset::css('style.css')?>
 <?=Asset::css('table.css')?>
+<?=Asset::css('form.css')?>
 <head>
     <link rel="SHORTCUT ICON" HREF="assets/img/favicon.ico">
     <title>FJBlog</title>
@@ -66,13 +67,10 @@
     </div>
 
     <div class="food">
-        <ol>
-            <li>コンビニ</li>
-            <li>お昼ランキング</li>
-            <li>放課後ランキング</li>
-            <li><a class="eat" href="lunch/noodle">ラーメン</a></li>
-            <li>女子会</li>
-        </ol>
+        <p><a class="conbini" href="lunch/conbini">コンビニ</a></p>
+        <p><a class="eat" href="lunch/noodle">ラーメン</a></p>
+        <p><a class="fami" href="lunch/fami">ファミレス</a></p>
+        <p><a class="jk" href="lunch/jk">インスタ</a></p>
     </div>
 
     <h2>～みんなの声～</h2>

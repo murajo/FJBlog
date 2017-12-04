@@ -4,6 +4,7 @@
 <?=Asset::css('drop.css')?>
 <?=Asset::css('style.css')?>
 <?=Asset::css('table.css')?>
+<?=Asset::css('form.css')?>
 <head>
     <link rel="SHORTCUT ICON" HREF="assets/img/favicon.ico">
     <title>Twitter検索</title>

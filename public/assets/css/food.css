@@ -5,10 +5,9 @@ body {
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: auto;
-    /* 背景画像が読み込まれる前に表示される背景のカラー */
-    background-color: #FFAA55;
     font-size: 20px;
     font-weight: bold;
+    text-align: center !important;
 }
 h2{
     text-align: center;
@@ -22,22 +21,12 @@ h3{
 img{
     height: 300px;
     width: 300px;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 div.noodle{
-    margin-left: 30%;
+    display:inline-block;
+    text-align: left;
     color: blue;
+    word-wrap: break-word;
 }
-div.a{
-    max-width: 50%;
-    margin-left: 40%;
-}
-div.toukou{
-    margin-top: 30px;
-    text-align: center;
-}
-textarea{
-    width: 300px;
-    height: 7em;
-    line-height: 1em;
-}
-

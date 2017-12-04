@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+body {
+  background-image: url(white.jpg);
+  background-position: center center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: auto;
+  font-size: 20px;
+  font-weight: bold;
+  text-align:center; /*ページ全体を中央揃えにする*/
+
+}
+h2{
+    text-align: center;
+    color: orange;
+
+}
+h3{
+    color:brown;
+}
+img{
+    width: 260px; 
+    height: 195px;
+}
+.jk{
+    font-size:17px;
+    color: black ;
+    word-wrap: break-word;
+    text-align: center;
+}
+div.a{
+    max-width: 50%;
+    margin-left: 40%;
+}

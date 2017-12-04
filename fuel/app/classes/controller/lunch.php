@@ -52,4 +52,68 @@ class Controller_Lunch extends Controller
         return $view;
 
     }
+    public function action_jk(){
+        $view = View::forge('lunch/jk.php');
+        //if(Input::post('action')=='save'){
+        if((!empty(Input::post('shop'))) == '1' && (!empty(Input::post('voice'))) == '1'){
+            $shop = Input::post('shop');
+            $voice = Input::post('voice');
+            $dbobj3 = new Model_jk();
+
+            $dbobj3->shopname = $shop;
+            $dbobj3->voice = $voice;
+
+            $shop = htmlspecialchars($shop, ENT_QUOTES);
+            $voice = htmlspecialchars($voice, ENT_QUOTES);
+            // $dbobj3->set('shopname',$shop);
+            // $dbobj3->set('voice',$voice);
+            $dbobj3->save();
+        }
+        $query = Model_jk::query()->get();
+        $view->set('dbObj',$query);
+        return $view;
+
+    }
+    public function action_fami(){
+        $view = View::forge('lunch/fami.php');
+        //if(Input::post('action')=='save'){
+        if((!empty(Input::post('shop'))) == '1' && (!empty(Input::post('voice'))) == '1'){
+            $shop = Input::post('shop');
+            $voice = Input::post('voice');
+            $dbobj3 = new Model_fami();
+
+            $dbobj3->shopname = $shop;
+            $dbobj3->voice = $voice;
+
+            $shop = htmlspecialchars($shop, ENT_QUOTES);
+            $voice = htmlspecialchars($voice, ENT_QUOTES);
+            // $dbobj3->set('shopname',$shop);
+            // $dbobj3->set('voice',$voice);
+            $dbobj3->save();
+        }
+        $query = Model_fami::query()->get();
+        $view->set('dbObj',$query);
+        return $view;
+    }
+    public function action_conbini(){
+        $view = View::forge('lunch/conbini.php');
+        //if(Input::post('action')=='save'){
+        if((!empty(Input::post('shop'))) == '1' && (!empty(Input::post('voice'))) == '1'){
+            $shop = Input::post('shop');
+            $voice = Input::post('voice');
+            $dbobj3 = new Model_conbini();
+
+            $dbobj3->shopname = $shop;
+            $dbobj3->voice = $voice;
+
+            $shop = htmlspecialchars($shop, ENT_QUOTES);
+            $voice = htmlspecialchars($voice, ENT_QUOTES);
+            // $dbobj3->set('shopname',$shop);
+            // $dbobj3->set('voice',$voice);
+            $dbobj3->save();
+        }
+        $query = Model_conbini::query()->get();
+        $view->set('dbObj',$query);
+        return $view;
+    }
 }

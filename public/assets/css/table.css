@@ -36,3 +36,13 @@ td.time{
     width: 300px;
     color: blue;
 }
+
+td.shop{
+    text-align: center;
+    width: 300px;
+    color: blue;
+}
+td.voice{
+    text-align: left;
+    width: 700px;
+}

@@ -23,55 +23,13 @@ p{
   color:darkslateblue;
   text-align:center;
 }
-
-input {
-  width: 300px;
-}
-
-form {
-  width: 100%;
-  padding: 10px 10px 0 10px;
-  margin-bottom: 15px;
-  color: #666;
-}
-
-input.sousin{
-  width: 150px;
-  height: 50px;
-  cursor:pointer;
-}
-
 div.ver{
   font-size: 14px;
 }
 div.gazou{
   margin-top: -60px;
 }
-
-div.toukou{
-  margin-top: 30px;
-  text-align: center;
-}
-div.kensaku{
-  margin-top: 30px;
-  text-align: center;
-}
 div.food{
-  margin:0 550px 100px;
   color:darkblue;
-}
-
-.drawer-back{
-  background-color:burlywood;
-}
-
-.drawer-char{
-  font-size: 30px;
-  color: firebrick;
-}
-
-textarea{
-  width: 300px;
-  height: 7em;
-  line-height: 1em;
+  margin-bottom: 90px;
 }

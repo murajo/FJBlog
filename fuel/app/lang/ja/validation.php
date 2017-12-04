@@ -15,4 +15,7 @@ return array(
     'numeric_min'   => ':label には、:param:1 より大きい数値を入力して下さい。',
     'numeric_max'   => ':label には、:param:1 より小さい数値を入力して下さい。',
     'valid_string'  => ':labelは:param:2で入力してください。',
+    'numeric'        => ':labelに使用できない文字が含まれています',
+    'lowercase'        => ':labelに使用できない文字が含まれています',
+    'uppercase'        => ':labelに使用できない文字が含まれています',
 );

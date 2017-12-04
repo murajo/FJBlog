@@ -45,6 +45,9 @@
                         <div class="drawer-char">マニュアル</div>
                     </a></li>
                 <li><a class="drawer-menu-item" href="http://localhost/FJBlog/public/tweet">
+                        <div class="drawer-char">マニュアル</div>
+                    </a></li>
+                <li><a class="drawer-menu-item" href="http://localhost/FJBlog/public/tweet">
                         <div class="drawer-char"></div>
                     </a></li>
                 <li><br><br><br><br><br><br><br><br><br><br><br><br><br></li>
@@ -57,7 +60,10 @@
 <main role="main">
     <!-- バージョン表記 -->
     <div class="ver" align="right">
-        ばーじょんは1.1.5だよ！
+        ばーじょんは1.1.5だよ！<br>
+        <form class="form-horizontal" method="post">
+            <div class="row"><div class="col-sm-push-10 col-sm-2"><button class="btn btn-success btn-block" name="logout" value="logout">ログアウト</button></div></div>
+        </form>
     </div>
 
     <div class="gazou" align="center">
@@ -76,13 +82,13 @@
             <tr>
         </table>
     <?php endforeach ?>
-
+    <?php if($username != 'guest') : ?>
     <div class="toukou">
         <form action="bord.php" method="post" onsubmit="return false"><!-- Enterが押されてもsubmitしない -->
-            <label><input type="text" name="user" placeholder="ユーザー名"></label>
             <p><textarea name="text" placeholder="本文を入力してください"></textarea></p>
             <input class="sousin" type="button" name="save" value="送信" onclick="submit()"><!-- ボタンが押されたときsubmitする -->
     </div>
+    <?php endif; ?>
 
 </body>
 </html>

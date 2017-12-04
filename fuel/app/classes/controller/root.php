@@ -53,6 +53,7 @@ class Controller_Root extends Controller
             echo('登録成功');
         }
         $result_validate = $val->show_errors();
+        $result_validate = $this->replace_tag($result_validate);
         $view->set_global('create_err', $result_validate);
         return $view;
     }
@@ -122,6 +123,14 @@ class Controller_Root extends Controller
         $val->add($set_mail, 'メールアドレス')
             ->add_rule('required')
             ->add_rule('valid_email');
+        return $val;
+    }
+
+    //謎の<li><ul>のタグを排除
+    private function replace_tag($val){
+        $val = str_replace('/',"",$val);
+        $val = str_replace("<ul>","",$val);
+        $val = str_replace("<li>","",$val);
         return $val;
     }
 }

@@ -14,10 +14,15 @@ class Controller_Useradd extends Controller
     public function action_index()
     {
         $view = View::forge('useradd/index.php');
-        if(Input::post('action') == 'sendmail' && Input::post('mailaddress')){
+        $view->set('good', '');
+        $view->set('msg','');
+        if(Input::post('sendmail') == 'メール送信' && Input::post('mailaddress')){
             if($this->check_user_mailaddress(Input::post('mailaddress'))) {
-                echo 'aa';
-                $this->sendmail($view, Input::post('mailaddress'));
+                if($this->sendmail($view, Input::post('mailaddress'))){
+                    $view->set('good','メールが送信されました');
+                }else{
+                    $view->set('msg','メールの送信に失敗しました');
+                }
             }else{
                 $view->set('msg','そのメールアドレスはすでに使われています');
             }
@@ -60,7 +65,6 @@ class Controller_Useradd extends Controller
         }
         catch (\EmailValidationFailedException $e) {
             // 1 つ以上のメールアドレスがバリデーションで失敗した。
-            echo '送信に失敗しました';
             $sendErr = 'address error（EmailValidationFailedException）。<br />';
             $sendErr .= $e->getMessage();
         }
@@ -84,6 +88,7 @@ class Controller_Useradd extends Controller
         $val = Validation::forge();
         $val = $this->validation_username($val, 'username');
         $val = $this->validation_password($val, 'password');
+        $val = $this->validation_password_retype($val, 'password_retype');
         if ($val->run()) {
             $username = Input::post('username');
             $password = Input::post('password');
@@ -91,7 +96,7 @@ class Controller_Useradd extends Controller
             Auth::create_user($username, $password, $email);
             echo('登録成功');
         }
-        $result_validate = $val->show_errors();
+        $result_validate = $this->replace_tag($val->show_errors());
         $view->set_global('create_err', $result_validate);
         return $view;
     }
@@ -111,6 +116,7 @@ class Controller_Useradd extends Controller
 
     private function check_authmail_mailaddress($mailaddress){
         $query = Model_users::query()->where('mailaddress',$mailaddress);
+        Debug::dump($query);
         return $query;
     }
 
@@ -150,6 +156,23 @@ class Controller_Useradd extends Controller
             ->add_rule('required')
             ->add_rule('max_length', '20')
             ->add_rule('min_length', '7');
+
+        return $val;
+    }
+
+    private function validation_password_retype($val,$set_retype){
+        $val->add($set_retype,'パスワード(確認用)')
+            ->add_rule('required')
+            ->add_rule('max_length','20')
+            ->add_rule('min_length','7')
+            ->add_rule('match_field','password');
+        return $val;
+    }
+
+    private function replace_tag($val){
+        $val = str_replace('/',"",$val);
+        $val = str_replace("<ul>","",$val);
+        $val = str_replace("<li>","",$val);
         return $val;
     }
 

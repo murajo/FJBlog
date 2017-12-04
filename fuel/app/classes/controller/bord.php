@@ -6,9 +6,11 @@ class Controller_Bord extends Controller
     public function action_index()
     {
         $view = View::forge('bord/index.php');
+        $username = $this->login_check();
+        $view->set('username',$username);
         //if(Input::post('action')=='save'){
-        if((!empty(Input::post('user'))) == '1' && (!empty(Input::post('text'))) == '1'){
-        $user = Input::post('user');
+        if((!empty(Input::post('text'))) == '1'){
+        $user = $username;
         $text = Input::post('text');
         date_default_timezone_set('Asia/Tokyo');
         $time=date("Y/m/d H:i");
@@ -29,5 +31,21 @@ class Controller_Bord extends Controller
         $query = Model_bord::query()->get();
         $view->set('dbObj',$query);
         return $view;
+    }
+
+    private function login_check(){
+        if (Input::post('logout')) {
+            $auth = Auth::instance();
+            $auth->logout();
+            Response::redirect('login');
+        }
+        if(! Auth::check()){
+            $auth = Auth::instance();
+            $auth->logout();
+            Response::redirect('login');
+        }
+        list(, $userid) = Auth::get_user_id();
+        $username = Model_users::find($userid)['username'];
+        return $username;
     }
 }

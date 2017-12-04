@@ -1,8 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="ja">
 <meta charset="UTF-8">
+<?=Asset::css('drop.css')?>
 <?=Asset::css('style.css')?>
 <?=Asset::css('table.css')?>
+<?=Asset::css('form.css')?>
 <head>
     <link rel="SHORTCUT ICON" HREF="assets/img/favicon.ico">
     <title>FJBlog</title>
@@ -11,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/js/drawer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="ajax.js?ver=1.0"></script>
 
     <script>
         $(document).ready(function() {
